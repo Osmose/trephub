@@ -1,17 +1,15 @@
-import os
-
 from setuptools import setup, find_packages
 
 
 setup(name='trephub',
-      version='1.0',
+      version='0.1',
       description='Django application.',
       long_description='',
-      author='',
+      author='Michael Kelly',
       author_email='',
       license='',
       url='',
       include_package_data=True,
-      classifiers = [],
+      classifiers=[],
       packages=find_packages(exclude=['tests']),
       install_requires=[])
