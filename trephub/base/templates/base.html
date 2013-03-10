@@ -4,15 +4,20 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>TrepHub</title>
     {% block site_css %}
-      <link rel="stylesheet" href="{{ static('base/css/bootstrap.css') }}">
+      {{ css('base') }}
     {% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
-      <div class="navbar-inner">
-        <a href="{{ url('trephub.base.home') }}" class="brand">TrepHub</a>
+    <header class="jumbotron">
+      <div class="container">
+        <h1>TrepHub</h1>
+        <ul class="member-callout">
+          {% for k in range(20) %}
+            <li><img src="http://lorempixel.com/55/60/?{{ k }}"></li>
+          {% endfor %}
+        </ul>
       </div>
-    </nav>
+    </header>
 
     <div class="container">
       {% block content %}{% endblock %}
@@ -20,7 +25,7 @@
 
     {% block site_js %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-      <script src="{{ static('base/js/bootstrap.js') }}"></script>
+      {{ js('base') }}
     {% endblock %}
   </body>
 </html>

@@ -9,6 +9,8 @@ ROOT_URLCONF = 'trephub.urls'
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     'trephub.base',
 
+    'jingo_minify',
+
     'django.contrib.admin',
 ]
 
@@ -47,3 +49,21 @@ ENGAGE_ROBOTS = False
 
 # Always generate a CSRF token for anonymous users.
 ANON_ALWAYS = True
+
+# Force jingo-minify to use static paths.
+JINGO_MINIFY_USE_STATIC = True
+
+# Static asset bundles
+MINIFY_BUNDLES = {
+    'css': {
+        'base': (
+            'css/bootstrap.css',
+            'css/base.css',
+        ),
+    },
+    'js': {
+        'base': (
+            'js/bootstrap.js',
+        ),
+    },
+}

@@ -1,0 +1,23 @@
+/* Header **********/
+
+.jumbotron {
+    background: #CCC;
+}
+
+.member-callout {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.member-callout li {
+    display: inline-block;
+}
+
+/* Event List ******/
+
+.events {
+    list-style-type: none;
+    margin: 0;
+}
