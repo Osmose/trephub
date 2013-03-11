@@ -19,8 +19,8 @@ def robots_txt(request):
 
 
 urlpatterns = patterns('',
-    # Example:
     (r'', include('trephub.base.urls')),
+    (r'^events/', include('trephub.events.urls')),
 
     # Generate a robots.txt
     (r'^robots\.txt$', robots_txt),

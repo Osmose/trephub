@@ -8,8 +8,10 @@ ROOT_URLCONF = 'trephub.urls'
 
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     'trephub.base',
+    'trephub.events',
 
     'jingo_minify',
+    'south',
 
     'django.contrib.admin',
 ]
@@ -53,12 +55,18 @@ ANON_ALWAYS = True
 # Force jingo-minify to use static paths.
 JINGO_MINIFY_USE_STATIC = True
 
+# Meetup Group Info
+MEETUP_GROUP_URLNAME = 'Coders-Hackers-Founders'
+
 # Static asset bundles
 MINIFY_BUNDLES = {
     'css': {
         'base': (
             'css/bootstrap.css',
             'css/base.css',
+        ),
+        'home': (
+            'css/home.css',
         ),
     },
     'js': {

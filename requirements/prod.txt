@@ -1,1 +1,4 @@
 -r ../vendor/src/funfactory/funfactory/requirements/prod.txt
+
+requests==1.1.0
+south==0.7.6

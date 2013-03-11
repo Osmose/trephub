@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="span9">
+      <p>For the most up-to-date information about TrepHub, check out our group on Meetup.com, where we post all of our events and interact with members of the community.</p>
+    </div>
+    <div class="span3">
+      <a href="#" class="btn btn-large btn-primary">Visit our Meetup Group &raquo;</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <iframe src="https://www.google.com/calendar/embed?title=Meetup%20Calendar&amp;showPrint=0&amp;showCalendars=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=mnmv3aauoi2ra1echjmm01ouic%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=America%2FNew_York" style=" border-width:0 " width="940" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span12">
+      <ul class="events">
+        {% for event in events %}
+          <li>
+            <h2>{{ event['name']|safe }}</h2>
+            {{ event['description']|safe }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}
