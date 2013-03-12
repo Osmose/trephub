@@ -1,4 +1,7 @@
+import os
+
 from django.db import models
+from django.template.defaultfilters import slugify
 
 from product_details import product_details
 
@@ -27,3 +30,14 @@ class CountryField(models.CharField):
 # South introspection rules for custom fields
 from south.modelsinspector import add_introspection_rules
 add_introspection_rules([], ['^trephub\.base\.models\.CountryField'])
+
+
+class Sponsor(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    slug = models.SlugField(default='', unique=True)
+    description = models.TextField()
+
+    def _logo_path(self, filename):
+        root, ext = os.path.splitext(filename)
+        return 'sponsors/{0}{1}'.format(slugify(self.name), ext)
+    logo = models.ImageField(upload_to=_logo_path)

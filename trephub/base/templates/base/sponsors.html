@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Sponsors</h2>
+  {% for sponsor in sponsors %}
+    <div id="{{ sponsor.slug }}" class="row">
+      <div class="span4">
+        <img src="{{ sponsor.logo.url }}">
+      </div>
+      <div class="span8">
+        <h3>{{ sponsor.name }}</h3>
+        <p>{{ sponsor.description }}</p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
