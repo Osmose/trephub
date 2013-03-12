@@ -10,6 +10,7 @@ INSTALLED_APPS = list(INSTALLED_APPS) + [
     'trephub.base',
     'trephub.events',
 
+    'easy_thumbnails',
     'jingo_minify',
     'south',
 
@@ -57,6 +58,13 @@ JINGO_MINIFY_USE_STATIC = True
 
 # Meetup Group Info
 MEETUP_GROUP_URLNAME = 'Coders-Hackers-Founders'
+
+# Thumbnail configuration
+THUMBNAIL_ALIASES = {
+    '': {
+        'small_thumb': {'size': (50, 50), 'crop': True},
+    },
+}
 
 # Static asset bundles
 MINIFY_BUNDLES = {

@@ -1,6 +1,9 @@
 from datetime import datetime
 
+from django.core.urlresolvers import reverse
 from django.db import models
+
+from easy_thumbnails.fields import ThumbnailerImageField
 
 from trephub.base.models import CountryField
 
@@ -18,10 +21,21 @@ class Location(models.Model):
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=255)
-    attendance = models.PositiveIntegerField()
+    name = models.CharField(max_length=255, unique=True)
+    slug = models.SlugField(default='', unique=True)
+
+    start = models.DateTimeField(blank=True, null=True)
+    end = models.DateTimeField(blank=True, null=True)
     location = models.ForeignKey(Location)
-    summary = models.TextField()
+    attendance = models.PositiveIntegerField(
+        help_text='Number of people who attended the event.')
+
+    summary = models.TextField(default='',
+                               help_text=('Short paragraph summarizing the '
+                                          'event.'))
+    details = models.TextField(default='', blank=True,
+                               help_text=('Optional longer description of the '
+                                          'event.'))
 
     created = models.DateTimeField(default=datetime.now)
     updated = models.DateTimeField()
@@ -29,6 +43,9 @@ class Event(models.Model):
     def save(self, *args, **kwargs):
         self.updated = datetime.now()
         return super(Event, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('trephub.events.details.slug', args=[self.slug])
 
     def __unicode__(self):
         return self.name
@@ -42,7 +59,7 @@ class Photo(models.Model):
 
     def _image_path(self, filename):
         return 'events/{0}/photos/{1}'.format(self.event.id, filename)
-    image = models.ImageField(upload_to=_image_path)
+    image = ThumbnailerImageField(upload_to=_image_path)
 
     def save(self, *args, **kwargs):
         self.updated = datetime.now()

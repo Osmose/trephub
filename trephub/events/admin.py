@@ -21,13 +21,15 @@ class EventAdmin(admin.ModelAdmin):
     search_fields = ('name', 'location')
 
     readonly_fields = ('created', 'updated')
+    prepopulated_fields = {'slug': ('name',)}
     fieldsets = (
         (None, {
-            'fields': ('name', 'attendance', 'location', 'created', 'updated')
+            'fields': ('name', 'slug', 'created', 'updated'),
         }),
-        ('Summary', {
-            'fields': ('summary',)
-        })
+        ('Details', {
+            'fields': ('start', 'end', 'location', 'attendance', 'summary',
+                       'details'),
+        }),
     )
 
     inlines = [PhotoInline, EventFileInline]

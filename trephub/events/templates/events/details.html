@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ event.name }}</h2>
+  <div class="row">
+    <div class="span8">
+      <p>{{ event.summary }}</p>
+      {{ event.details }}
+    </div>
+    <div class="span4">
+      <dl>
+        {% if event.start %}
+          <dt>When</dt>
+          <dd>{{ event.start }} {% if event.end %}&ndash; {{ event.end }}{% endif %}</dd>
+        {% endif %}
+        <dt>Where</dt>
+        <dd>{{ event.location }}</dd>
+        <dt>Attendance</dt>
+        <dd>{{ event.attendance }}</dd>
+      </dl>
+
+      {% if event.eventfile_set.exists() %}
+        <h3>Materials</h3>
+        <ul class="files">
+          {% for eventfile in event.eventfile_set.all() %}
+            <li><a href="{{ eventfile.file.url }}">{{ eventfile.name }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if event.photo_set.exists() %}
+        <h3>Photos</h3>
+        <ul class="photos">
+          {% for photo in event.photo_set.all() %}
+            <li>
+              <a href="{{ photo.image.url }}">
+                <img src="{{ photo.image.small_thumb.url }}">
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
