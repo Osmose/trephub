@@ -19,3 +19,7 @@ def meetup_events(request):
 def sponsors(request):
     sponsors = Sponsor.objects.all()
     return render(request, 'base/sponsors.html', {'sponsors': sponsors})
+
+
+def about(request):
+    return render(request, 'base/about.html')
