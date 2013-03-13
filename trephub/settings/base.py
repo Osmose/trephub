@@ -8,6 +8,7 @@ ROOT_URLCONF = 'trephub.urls'
 
 INSTALLED_APPS = list(INSTALLED_APPS) + [
     'trephub.base',
+    'trephub.blog',
     'trephub.events',
 
     'easy_thumbnails',

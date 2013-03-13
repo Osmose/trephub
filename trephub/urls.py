@@ -6,8 +6,10 @@ from django.http import HttpResponse
 
 from funfactory.monkeypatches import patch
 
+from trephub.monkeypatches import patch as trephub_patch
 
 patch()
+trephub_patch()
 admin.autodiscover()
 
 
@@ -21,6 +23,7 @@ def robots_txt(request):
 urlpatterns = patterns('',
     (r'', include('trephub.base.urls')),
     (r'^events/', include('trephub.events.urls')),
+    (r'^blog/', include('trephub.blog.urls')),
 
     # Generate a robots.txt
     (r'^robots\.txt$', robots_txt),

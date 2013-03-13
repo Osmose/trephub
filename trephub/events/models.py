@@ -48,7 +48,7 @@ class Event(models.Model):
         return reverse('trephub.events.details.slug', args=[self.slug])
 
     def __unicode__(self):
-        return self.name
+        return u'<Event `{0}`>'.format(self.name)
 
 
 class Photo(models.Model):
@@ -66,7 +66,7 @@ class Photo(models.Model):
         return super(Photo, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return 'Photo ({0}): {1}'.format(self.event.name, self.image)
+        return u'<Photo ({0}): `{1}`>'.format(self.event.name, self.image)
 
 
 class EventFile(models.Model):
@@ -85,4 +85,4 @@ class EventFile(models.Model):
         return super(EventFile, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return 'File ({0}): {1}'.format(self.event.name, self.file)
+        return u'<EventFile ({0}): `{1}`>'.format(self.event.name, self.file)

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% from 'macros.html' import paginate %}
+
+{% block content %}
+  <div class="row">
+    <div class="span12">
+      <ul class="blog-entries">
+        {% for entry in entries %}
+          <li>
+            <h2>
+              <a href="{{ entry.get_absolute_url() }}">
+                {{ entry.title }}
+              </a>
+            </h2>
+            {{ entry.summary }}
+          </li>
+        {% endfor %}
+      </ul>
+
+      {{ paginate(url('trephub.blog.list'), page_obj, paginator) }}
+    </div>
+  </div>
+{% endblock %}
