@@ -1,13 +1,16 @@
-from django.shortcuts import get_object_or_404, render
+from django.views.generic import DetailView, ListView
 
 from trephub.events.models import Event
 
 
-def event_list(request):
-    events = Event.objects.all()
-    return render(request, 'events/list.html', {'events': events})
+class EventList(ListView):
+    model = Event
+    paginate_by = 5
+    context_object_name = 'events'
+    template_name = 'events/list.html'
 
 
-def event_details(request, param, lookup=None):
-    event = get_object_or_404(Event, **{lookup: param})
-    return render(request, 'events/details.html', {'event': event})
+class EventDetail(DetailView):
+    model = Event
+    context_object_name = 'event'
+    template_name = 'events/details.html'

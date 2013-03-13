@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% from 'macros.html' import paginate %}
+
 {% block content %}
   <div class="row">
     <div class="span12">
@@ -12,6 +14,8 @@
           </li>
         {% endfor %}
       </ul>
+
+      {{ paginate(url('trephub.events.list'), page_obj, paginator) }}
     </div>
   </div>
 {% endblock %}
