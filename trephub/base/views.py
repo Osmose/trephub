@@ -11,8 +11,10 @@ def home(request):
     except BlogEntry.DoesNotExist:
         blog_entry = None
     sponsors = Sponsor.objects.all()
+    events = meetup.events()[:3]
     return render(request, 'base/home.html', {
         'sponsors': sponsors,
+        'events': events,
         'blog_entry': blog_entry
     })
 
