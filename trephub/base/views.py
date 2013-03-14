@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render
 
 from trephub.base import meetup
@@ -12,6 +14,11 @@ def home(request):
         blog_entry = None
     sponsors = Sponsor.objects.all()
     events = meetup.events()[:3]
+
+    # Annotate events with extra info.
+    for event in events:
+        event['time'] = datetime.fromtimestamp(int(event['time']) / 1000)
+
     return render(request, 'base/home.html', {
         'sponsors': sponsors,
         'events': events,

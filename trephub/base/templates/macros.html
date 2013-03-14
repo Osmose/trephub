@@ -17,3 +17,13 @@
     </div>
   {% endif %}
 {%- endmacro %}
+
+{% macro datetime_calendar(datetime) -%}
+  <time class="datetime-calendar" datetime="{{ datetime.isoformat() }}">
+    <div class="calendar">
+      <div class="month">{{ datetime.strftime('%B') }}</div>
+      <div class="day">{{ datetime.strftime('%d') }}</div>
+      <div class="year">{{ datetime.strftime('%Y') }}</div>
+    </div>
+  </time>
+{%- endmacro %}

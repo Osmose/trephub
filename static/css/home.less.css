@@ -1,0 +1,27 @@
+/* Colors ******/
+/* Common component attributes ******/
+/* Intro ******/
+#intro {
+  margin: 20px 0 50px;
+}
+/* Event List ******/
+#events {
+  margin-bottom: 50px;
+}
+#events ul {
+  list-style-type: none;
+  margin: 0;
+}
+#events ul li {
+  margin-bottom: 10px;
+}
+#events ul li h3 {
+  line-height: 1.2em;
+}
+#events ul .about {
+  margin-left: 80px;
+}
+#events ul .datetime-calendar {
+  float: left;
+  margin-top: 13px;
+}

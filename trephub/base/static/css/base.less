@@ -1,0 +1,66 @@
+@import "variables";
+
+
+/* Base ******/
+body {
+    color: @dark-text;
+    background: @light-gray;
+}
+
+
+/* Header ******/
+.jumbotron {
+    color: @white;
+    background: @red;
+    margin-bottom: 20px;
+}
+
+.member-callout {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+
+    li {
+        display: inline-block;
+    }
+}
+
+
+/* datetime-calendar ******/
+.datetime-calendar {
+    @total-height: 80px;
+    @month-year-height: 22px;
+
+    background: @white;
+    display: inline-block;
+    height: @total-height;
+    width: @datetime-calendar-width;
+
+    .calendar {
+        .month,
+        .year {
+            font-size: 0.95em;
+            font-variant: small-caps;
+            font-weight: bold;
+            height: @month-year-height;
+            line-height: @month-year-height;
+            text-align: center;
+            text-transform: lowercase;
+        }
+
+        .month {
+            background: @red;
+            color: @white;
+        }
+
+        .day {
+            @day-height: @total-height - (@month-year-height * 2);
+            font-size: 2em;
+            font-weight: bold;
+            height: @day-height;
+            line-height: @day-height;
+            text-align: center;
+        }
+    }
+}

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% from 'macros.html' import datetime_calendar %}
+
 {% block site_css %}
   {{ super() }}
   {{ css('home') }}
@@ -8,49 +10,60 @@
 {% block content %}
   <div class="row">
     <div class="span12">
-      <h2>TrepHub aims to be the center of the technology community in Melbourne, FL.</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <section id="intro">
+        <h2>TrepHub aims to be the center of the technology community in Melbourne, FL.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </section>
     </div>
   </div>
+
   <div class="row">
-    <div class="span8">
-      <h3>Upcoming Events</h3>
-      {% if events %}
-        <ul class="events">
-          {% for event in events %}
+    <div class="span7">
+      <section id="events">
+        <h2>Upcoming Events</h2>
+        {% if events %}
+          <ul>
+            {% for event in events %}
+              <li class="clearfix">
+                {{ datetime_calendar(event['time']) }}
+                <div class="about">
+                  <h3><a href="{{ event['event_url'] }}">{{ event['name'] }}</a></h3>
+                  <div class="location">{{ event['venue']['name'] }}</div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>We don't have anything planned right now, check back soon, or check out our Meetup page.</p>
+        {% endif %}
+      </section>
+
+      <section id="blog">
+        <h2>Blog</h2>
+        {% if not blog_entry %}
+          <p>No entries found.</p>
+        {% else %}
+          <article>
+            <h4>{{ blog_entry.title }}</h4>
+            {{ blog_entry.summary }}
+            <p><a href="#">Read more</a></p>
+          </article>
+        {% endif %}
+      </section>
+    </div>
+    <div class="span4 offset1">
+      <section id="sponsors">
+        <h2>Our Sponsors</h2>
+        <ul class="sponsors">
+          {% for sponsor in sponsors %}
             <li>
-              <h4><a href="{{ event['event_url'] }}">{{ event['name'] }}</a></h4>
-               <div class="time">{{ event['time'] }}</div>
-              <div class="location">{{ event['venue']['name'] }}</div>
+              <a href="{{ url('trephub.base.sponsors')|urlparams(hash=sponsor.slug) }}">
+                <img src="{{ sponsor.logo.url }}">
+              </a>
             </li>
           {% endfor %}
         </ul>
-      {% else %}
-        <p>We don't have anything planned right now, check back soon, or check out our Meetup page.</p>
-      {% endif %}
-
-      <h3>Blog</h3>
-      {% if not blog_entry %}
-        <p>No entries found.</p>
-      {% else %}
-        <article>
-          <h4>{{ blog_entry.title }}</h4>
-          {{ blog_entry.summary }}
-          <p><a href="#">Read more</a></p>
-        </article>
-      {% endif %}
-    </div>
-    <div class="span4">
-      <h3>Our Sponsors</h3>
-      <ul class="sponsors">
-        {% for sponsor in sponsors %}
-          <li>
-            <a href="{{ url('trephub.base.sponsors')|urlparams(hash=sponsor.slug) }}">
-              <img src="{{ sponsor.logo.url }}">
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
+      </section>
     </div>
   </div>
 {% endblock %}

@@ -72,10 +72,10 @@ MINIFY_BUNDLES = {
     'css': {
         'base': (
             'css/bootstrap.css',
-            'css/base.css',
+            'css/base.less',
         ),
         'home': (
-            'css/home.css',
+            'css/home.less',
         ),
     },
     'js': {

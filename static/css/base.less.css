@@ -1,0 +1,50 @@
+/* Colors ******/
+/* Common component attributes ******/
+/* Base ******/
+body {
+  color: #3e454c;
+  background: #efefef;
+}
+/* Header ******/
+.jumbotron {
+  color: #fdfdfd;
+  background: #8a0917;
+  margin-bottom: 20px;
+}
+.member-callout {
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.member-callout li {
+  display: inline-block;
+}
+/* datetime-calendar ******/
+.datetime-calendar {
+  background: #fdfdfd;
+  display: inline-block;
+  height: 80px;
+  width: 70px;
+}
+.datetime-calendar .calendar .month,
+.datetime-calendar .calendar .year {
+  font-size: 0.95em;
+  font-variant: small-caps;
+  font-weight: bold;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: lowercase;
+}
+.datetime-calendar .calendar .month {
+  background: #8a0917;
+  color: #fdfdfd;
+}
+.datetime-calendar .calendar .day {
+  font-size: 2em;
+  font-weight: bold;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+}
