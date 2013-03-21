@@ -35,7 +35,7 @@ class BlogEntry(models.Model):
         return super(BlogEntry, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('trephub.blog.details.slug', kwargs={'slug': self.slug})
+        return reverse('blog.details.slug', kwargs={'slug': self.slug})
 
     def get_newer(self, **kwargs):
         entries = (

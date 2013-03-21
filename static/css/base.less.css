@@ -1,15 +1,66 @@
 /* Colors ******/
-/* Common component attributes ******/
 /* Base ******/
+html,
 body {
-  color: #3e454c;
+  height: 100%;
+}
+body {
+  color: #2b3a42;
   background: #efefef;
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+}
+a {
+  color: #3f5765;
 }
 /* Header ******/
 .jumbotron {
   color: #fdfdfd;
-  background: #8a0917;
+  background: url('/static/img/jumbotron.png');
+  height: 100px;
   margin-bottom: 20px;
+}
+.jumbotron a {
+  color: #fdfdfd;
+}
+.jumbotron h1 {
+  line-height: 100px;
+  margin: 0;
+}
+.jumbotron h1 a {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 14px;
+}
+.jumbotron h1 a:hover {
+  text-decoration: none;
+}
+.jumbotron .container {
+  position: relative;
+}
+.jumbotron .nav-container {
+  font-size: 16px;
+  line-height: 100px;
+  list-style-type: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.jumbotron .nav-container .navigation {
+  background: rgba(0, 0, 0, 0.7);
+  display: inline;
+  padding: 3px 7px;
+}
+.jumbotron .nav-container .navigation li {
+  display: inline-block;
+}
+.jumbotron .nav-container .navigation li:after {
+  content: '/';
+  padding: 0 10px;
+}
+.jumbotron .nav-container .navigation li:last-child:after {
+  content: none;
+  padding: 0;
 }
 .member-callout {
   list-style-type: none;
@@ -20,15 +71,13 @@ body {
 .member-callout li {
   display: inline-block;
 }
-/* datetime-calendar ******/
-.datetime-calendar {
+/* Event List Details ******/
+.event-list .details .calendar {
   background: #fdfdfd;
-  display: inline-block;
   height: 80px;
-  width: 70px;
 }
-.datetime-calendar .calendar .month,
-.datetime-calendar .calendar .year {
+.event-list .details .calendar .month,
+.event-list .details .calendar .year {
   font-size: 0.95em;
   font-variant: small-caps;
   font-weight: bold;
@@ -37,14 +86,63 @@ body {
   text-align: center;
   text-transform: lowercase;
 }
-.datetime-calendar .calendar .month {
-  background: #8a0917;
+.event-list .details .calendar .month {
+  background: #ff530d;
   color: #fdfdfd;
 }
-.datetime-calendar .calendar .day {
+.event-list .details .calendar .day {
   font-size: 2em;
   font-weight: bold;
   height: 36px;
   line-height: 36px;
   text-align: center;
+}
+.event-list .details .time,
+.event-list .details .location {
+  font-weight: bold;
+  margin-top: 2px;
+}
+/* Footer ******/
+/* Wrapper for page content to push down footer */
+.wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+
+  margin: 0 auto -180px;
+}
+/* Set the fixed height of the footer here */
+.push,
+.footer {
+  height: 180px;
+}
+.footer {
+  background-color: #2b3a42;
+  color: #bdd4de;
+  height: 140px;
+  padding: 20px 0;
+}
+.footer h1,
+.footer h2 {
+  margin: 0 0 10px;
+}
+.footer a {
+  color: #bdd4de;
+}
+.footer .navigation {
+  list-style-type: none;
+}
+.footer .copyright {
+  color: #3f5765;
+  margin-top: 10px;
+}
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  .footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

@@ -2,17 +2,83 @@
 
 
 /* Base ******/
+html,
 body {
-    color: @dark-text;
-    background: @light-gray;
+    height: 100%;
+}
+
+body {
+    color: @darker;
+    background: @light;
+    font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+a {
+    color: @dark;
 }
 
 
 /* Header ******/
 .jumbotron {
+    @header-height: 100px;
+
     color: @white;
-    background: @red;
+    background: url('/static/img/jumbotron.png');
+    height: @header-height;
     margin-bottom: 20px;
+
+    a {
+        color: @white;
+    }
+
+    h1 {
+        line-height: @header-height;
+        margin: 0;
+
+        a {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 14px;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .nav-container {
+        font-size: 16px;
+        line-height: @header-height;
+        list-style-type: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        .navigation {
+            background: rgba(0, 0, 0, 0.7);
+            display: inline;
+            padding: 3px 7px;
+
+            li {
+                display: inline-block;
+
+                &:after {
+                    content: '/';
+                    padding: 0 10px;
+                }
+
+                &:last-child:after {
+                    content: none;
+                    padding: 0;
+                }
+            }
+        }
+    }
 }
 
 .member-callout {
@@ -27,17 +93,15 @@ body {
 }
 
 
-/* datetime-calendar ******/
-.datetime-calendar {
-    @total-height: 80px;
-    @month-year-height: 22px;
-
-    background: @white;
-    display: inline-block;
-    height: @total-height;
-    width: @datetime-calendar-width;
-
+/* Event List Details ******/
+.event-list .details {
     .calendar {
+        @total-height: 80px;
+        @month-year-height: 22px;
+
+        background: @white;
+        height: @total-height;
+
         .month,
         .year {
             font-size: 0.95em;
@@ -62,5 +126,63 @@ body {
             line-height: @day-height;
             text-align: center;
         }
+    }
+
+    .time,
+    .location {
+        font-weight: bold;
+        margin-top: 2px;
+    }
+}
+
+/* Footer ******/
+/* Wrapper for page content to push down footer */
+@footer-height: 180px;
+@footer-padding: 20px;
+.wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -@footer-height;
+}
+
+/* Set the fixed height of the footer here */
+.push,
+.footer {
+    height: @footer-height;
+}
+
+.footer {
+    background-color: @darker;
+    color: @blue;
+    height: @footer-height - (@footer-padding * 2);
+    padding: @footer-padding 0;
+
+    h1, h2 {
+        margin: 0 0 10px;
+    }
+
+    a {
+        color: @blue;
+    }
+
+    .navigation {
+        list-style-type: none;
+    }
+
+    .copyright {
+        color: @dark;
+        margin-top: 10px;
+    }
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+    .footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }

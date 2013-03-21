@@ -4,24 +4,62 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>TrepHub</title>
     {% block site_css %}
+      <link href="http://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css">
+      <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
       {{ css('base') }}
     {% endblock %}
   </head>
   <body>
-    <header class="jumbotron">
-      <div class="container">
-        <h1>TrepHub</h1>
-        <ul class="member-callout">
-          {% for k in range(20) %}
-            <li><img src="http://lorempixel.com/55/60/?{{ k }}"></li>
-          {% endfor %}
-        </ul>
-      </div>
-    </header>
+    <div class="wrap">
+      <header class="jumbotron">
+        <nav class="container">
+          <h1><a href="{{ url('base.home') }}">TrepHub</a></h1>
+          <div class="nav-container">
+            <ul class="navigation">
+              <li><a href="{{ url('base.about') }}">About TrepHub</a></li>
+              <li><a href="{{ url('base.meetup') }}">Upcoming Meetups</a></li>
+              <li><a href="{{ url('events.list') }}">Past Events</a></li>
+              <li><a href="{{ url('blog.list') }}">Blog</a></li>
+              <li><a href="{{ url('base.sponsors') }}">Sponsors</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
 
-    <div class="container">
-      {% block content %}{% endblock %}
+      <div class="container content">
+        {% block content %}{% endblock %}
+      </div>
+
+      <div class="push"></div>
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <h1><a href="{{ url('base.home') }}">TrepHub</a></h1>
+          </div>
+          <nav class="span5">
+            <ul class="navigation">
+              <li><a href="{{ url('base.about') }}">About TrepHub</a></li>
+              <li><a href="{{ url('base.meetup') }}">Upcoming Meetups</a></li>
+              <li><a href="{{ url('events.list') }}">Past Events</a></li>
+              <li><a href="{{ url('blog.list') }}">Blog</a></li>
+              <li><a href="{{ url('base.sponsors') }}">Sponsors</a></li>
+            </ul>
+          </nav>
+          <div class="span4">
+            <h2>Donate!</h2>
+            <p>Insert donation instructions here?</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span12">
+            <p class="copyright">Copyright &copy; {{ thisyear() }} TrepHub</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     {% block site_js %}
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>

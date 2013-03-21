@@ -45,7 +45,7 @@ class Event(models.Model):
         return super(Event, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('trephub.events.details.slug', args=[self.slug])
+        return reverse('events.details.slug', args=[self.slug])
 
     def __unicode__(self):
         return u'<Event `{0}`>'.format(self.name)

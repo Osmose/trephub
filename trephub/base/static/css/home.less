@@ -1,9 +1,13 @@
 @import "variables";
 
 
+.content h2 {
+    font-family: 'Droid Serif', Georgia, Times, serif;
+}
+
 /* Intro ******/
 #intro {
-    margin: 20px 0 50px;
+    margin-bottom: 50px;
 }
 
 
@@ -11,25 +15,38 @@
 #events {
     margin-bottom: 50px;
 
-    ul {
+    .event-list {
         list-style-type: none;
         margin: 0;
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 40px;
 
             h3 {
                 line-height: 1.2em;
             }
         }
 
-        .about {
-            margin-left: @datetime-calendar-width + 10px;
+        .details {
+            margin-top: 13px;
+            width: 80px;
         }
 
-        .datetime-calendar {
-            float: left;
-            margin-top: 13px;
+        .about {
+            width: 440px;
+        }
+    }
+}
+
+
+/* Sponsor List ******/
+#sponsors {
+    .sponsors {
+        list-style-type: none;
+        margin: 0;
+
+        li {
+            margin-bottom: 10px;
         }
     }
 }

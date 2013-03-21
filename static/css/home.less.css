@@ -1,27 +1,37 @@
 /* Colors ******/
-/* Common component attributes ******/
+.content h2 {
+  font-family: 'Droid Serif', Georgia, Times, serif;
+}
 /* Intro ******/
 #intro {
-  margin: 20px 0 50px;
+  margin-bottom: 50px;
 }
 /* Event List ******/
 #events {
   margin-bottom: 50px;
 }
-#events ul {
+#events .event-list {
   list-style-type: none;
   margin: 0;
 }
-#events ul li {
-  margin-bottom: 10px;
+#events .event-list li {
+  margin-bottom: 40px;
 }
-#events ul li h3 {
+#events .event-list li h3 {
   line-height: 1.2em;
 }
-#events ul .about {
-  margin-left: 80px;
-}
-#events ul .datetime-calendar {
-  float: left;
+#events .event-list .details {
   margin-top: 13px;
+  width: 80px;
+}
+#events .event-list .about {
+  width: 440px;
+}
+/* Sponsor List ******/
+#sponsors .sponsors {
+  list-style-type: none;
+  margin: 0;
+}
+#sponsors .sponsors li {
+  margin-bottom: 10px;
 }

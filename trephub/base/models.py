@@ -1,5 +1,6 @@
 import os
 
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.template.defaultfilters import slugify
 
@@ -41,3 +42,9 @@ class Sponsor(models.Model):
         root, ext = os.path.splitext(filename)
         return 'sponsors/{0}{1}'.format(slugify(self.name), ext)
     logo = models.ImageField(upload_to=_logo_path)
+
+    def get_absolute_url(self):
+        return '#'.join((reverse('base.sponsors'), self.slug))
+
+    def __unicode__(self):
+        return u'<Sponsor `{0}`>'.format(self.name)

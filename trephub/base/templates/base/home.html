@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% from 'macros.html' import datetime_calendar %}
-
 {% block site_css %}
   {{ super() }}
   {{ css('home') }}
@@ -22,13 +20,29 @@
       <section id="events">
         <h2>Upcoming Events</h2>
         {% if events %}
-          <ul>
+          <ul class="event-list">
             {% for event in events %}
-              <li class="clearfix">
-                {{ datetime_calendar(event['time']) }}
-                <div class="about">
+              <li class="row">
+                <div class="details span">
+                  <time datetime="{{ event['time'].isoformat() }}">
+                    <div class="calendar">
+                      <div class="month">{{ event['time']|date('F') }}</div>
+                      <div class="day">{{ event['time']|date('j') }}</div>
+                      <div class="year">{{ event['time']|date('Y') }}</div>
+                    </div>
+                    <div class="time">
+                      <i class="icon-time"></i>
+                      {{ event['time']|date('g:i A') }}
+                    </div>
+                  </time>
+                  <div class="location">
+                    <i class="icon-map-marker"></i>
+                    {{ event['venue']['name'] }}
+                  </div>
+                </div>
+                <div class="about span">
                   <h3><a href="{{ event['event_url'] }}">{{ event['name'] }}</a></h3>
-                  <div class="location">{{ event['venue']['name'] }}</div>
+                  <p>Somehow we'll fill this space with a single-paragraph summary of the event. Maybe extracting that info from the meetup description?</p>
                 </div>
               </li>
             {% endfor %}
@@ -46,7 +60,7 @@
           <article>
             <h4>{{ blog_entry.title }}</h4>
             {{ blog_entry.summary }}
-            <p><a href="#">Read more</a></p>
+            <p><a href="{{ blog_entry.get_absolute_url() }}">Read more</a></p>
           </article>
         {% endif %}
       </section>
@@ -57,7 +71,7 @@
         <ul class="sponsors">
           {% for sponsor in sponsors %}
             <li>
-              <a href="{{ url('trephub.base.sponsors')|urlparams(hash=sponsor.slug) }}">
+              <a href="{{ sponsor.get_absolute_url() }}">
                 <img src="{{ sponsor.logo.url }}">
               </a>
             </li>
