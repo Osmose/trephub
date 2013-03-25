@@ -1,6 +1,9 @@
+from datetime import datetime
+
 from django.conf import settings
 
 import requests
+from pyquery import PyQuery as pq
 
 
 API_ROOT = 'https://api.meetup.com'
@@ -29,4 +32,14 @@ def events():
     """Retrieve a list of events for the meetup group."""
     results = _meetup_request('/2/events',
                               group_urlname=settings.MEETUP_GROUP_URLNAME)
-    return results['results']
+    events = results['results']
+
+    # Annotate events with extra info.
+    for event in events:
+        event['time'] = datetime.fromtimestamp(int(event['time']) / 1000)
+
+        # Pull the text from the first <p> tag as the description.
+        paragraphs = pq(event['description'])('p')
+        event['summary'] = paragraphs[0].text if paragraphs else ''
+
+    return events

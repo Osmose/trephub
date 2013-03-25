@@ -73,9 +73,9 @@ MINIFY_BUNDLES = {
         'base': (
             'css/bootstrap.css',
             'css/base.less',
-        ),
-        'home': (
             'css/home.less',
+            'css/about.less',
+            'css/meetup.less',
         ),
     },
     'js': {

@@ -5,24 +5,25 @@ body {
   height: 100%;
 }
 body {
-  color: #2b3a42;
-  background: #efefef;
+  color: #34495e;
+  background: #ecf0f1;
   font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 25px;
 }
 a {
-  color: #3f5765;
+  color: #6285a8;
+  text-decoration: underline;
 }
 /* Header ******/
 .jumbotron {
-  color: #fdfdfd;
+  color: #ecf0f1;
   background: url('/static/img/jumbotron.png');
   height: 100px;
   margin-bottom: 20px;
 }
 .jumbotron a {
-  color: #fdfdfd;
+  color: #ecf0f1;
 }
 .jumbotron h1 {
   line-height: 100px;
@@ -31,6 +32,7 @@ a {
 .jumbotron h1 a {
   background: rgba(0, 0, 0, 0.7);
   padding: 5px 14px;
+  text-decoration: none;
 }
 .jumbotron h1 a:hover {
   text-decoration: none;
@@ -71,13 +73,17 @@ a {
 .member-callout li {
   display: inline-block;
 }
-/* Event List Details ******/
-.event-list .details .calendar {
-  background: #fdfdfd;
-  height: 80px;
+/* Content ******/
+.content {
+  margin-bottom: 40px;
 }
-.event-list .details .calendar .month,
-.event-list .details .calendar .year {
+/* Event List Details ******/
+.event-list .info-widget .calendar {
+  background: #fdfdfd;
+  height: 86px;
+}
+.event-list .info-widget .calendar .month,
+.event-list .info-widget .calendar .year {
   font-size: 0.95em;
   font-variant: small-caps;
   font-weight: bold;
@@ -86,21 +92,21 @@ a {
   text-align: center;
   text-transform: lowercase;
 }
-.event-list .details .calendar .month {
-  background: #ff530d;
+.event-list .info-widget .calendar .month {
+  background: #ec7063;
   color: #fdfdfd;
 }
-.event-list .details .calendar .day {
+.event-list .info-widget .calendar .day {
   font-size: 2em;
   font-weight: bold;
-  height: 36px;
-  line-height: 36px;
+  height: 42px;
+  line-height: 47.5px;
   text-align: center;
 }
-.event-list .details .time,
-.event-list .details .location {
+.event-list .info-widget .time,
+.event-list .info-widget .location {
   font-weight: bold;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 /* Footer ******/
 /* Wrapper for page content to push down footer */
@@ -118,8 +124,8 @@ a {
   height: 180px;
 }
 .footer {
-  background-color: #2b3a42;
-  color: #bdd4de;
+  background-color: #34495e;
+  color: #ecf0f1;
   height: 140px;
   padding: 20px 0;
 }
@@ -127,14 +133,18 @@ a {
 .footer h2 {
   margin: 0 0 10px;
 }
+.footer h1 a,
+.footer h2 a {
+  text-decoration: none;
+}
 .footer a {
-  color: #bdd4de;
+  color: #fdfdfd;
 }
 .footer .navigation {
   list-style-type: none;
 }
 .footer .copyright {
-  color: #3f5765;
+  color: #6285a8;
   margin-top: 10px;
 }
 /* Lastly, apply responsive CSS fixes as necessary */

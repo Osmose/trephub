@@ -1,0 +1,20 @@
+.meetup-callout {
+  margin-top: 20px;
+}
+.event-list {
+  list-style-type: none;
+  margin: 0;
+}
+.event-list .event {
+  margin-bottom: 40px;
+}
+.event-list .event .title {
+  line-height: 1.2em;
+}
+.event-list .info-widget {
+  margin-top: 13px;
+  width: 80px;
+}
+.event-list .description {
+  width: 840px;
+}

@@ -17,6 +17,7 @@ body {
 
 a {
     color: @dark;
+    text-decoration: underline;
 }
 
 
@@ -24,13 +25,13 @@ a {
 .jumbotron {
     @header-height: 100px;
 
-    color: @white;
+    color: @light;
     background: url('/static/img/jumbotron.png');
     height: @header-height;
     margin-bottom: 20px;
 
     a {
-        color: @white;
+        color: @light;
     }
 
     h1 {
@@ -40,6 +41,7 @@ a {
         a {
             background: rgba(0, 0, 0, 0.7);
             padding: 5px 14px;
+            text-decoration: none;
 
             &:hover {
                 text-decoration: none;
@@ -93,10 +95,16 @@ a {
 }
 
 
+/* Content ******/
+.content {
+    margin-bottom: 40px;
+}
+
+
 /* Event List Details ******/
-.event-list .details {
+.event-list .info-widget {
     .calendar {
-        @total-height: 80px;
+        @total-height: 86px;
         @month-year-height: 22px;
 
         background: @white;
@@ -123,7 +131,7 @@ a {
             font-size: 2em;
             font-weight: bold;
             height: @day-height;
-            line-height: @day-height;
+            line-height: @day-height + (@month-year-height / 4);
             text-align: center;
         }
     }
@@ -131,7 +139,7 @@ a {
     .time,
     .location {
         font-weight: bold;
-        margin-top: 2px;
+        margin-top: 4px;
     }
 }
 
@@ -155,16 +163,20 @@ a {
 
 .footer {
     background-color: @darker;
-    color: @blue;
+    color: @light;
     height: @footer-height - (@footer-padding * 2);
     padding: @footer-padding 0;
 
     h1, h2 {
         margin: 0 0 10px;
+
+        a {
+            text-decoration: none;
+        }
     }
 
     a {
-        color: @blue;
+        color: @white;
     }
 
     .navigation {

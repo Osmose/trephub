@@ -15,13 +15,7 @@
         <nav class="container">
           <h1><a href="{{ url('base.home') }}">TrepHub</a></h1>
           <div class="nav-container">
-            <ul class="navigation">
-              <li><a href="{{ url('base.about') }}">About TrepHub</a></li>
-              <li><a href="{{ url('base.meetup') }}">Upcoming Meetups</a></li>
-              <li><a href="{{ url('events.list') }}">Past Events</a></li>
-              <li><a href="{{ url('blog.list') }}">Blog</a></li>
-              <li><a href="{{ url('base.sponsors') }}">Sponsors</a></li>
-            </ul>
+            {% include 'includes/navigation.html' %}
           </div>
         </nav>
       </header>
@@ -40,13 +34,7 @@
             <h1><a href="{{ url('base.home') }}">TrepHub</a></h1>
           </div>
           <nav class="span5">
-            <ul class="navigation">
-              <li><a href="{{ url('base.about') }}">About TrepHub</a></li>
-              <li><a href="{{ url('base.meetup') }}">Upcoming Meetups</a></li>
-              <li><a href="{{ url('events.list') }}">Past Events</a></li>
-              <li><a href="{{ url('blog.list') }}">Blog</a></li>
-              <li><a href="{{ url('base.sponsors') }}">Sponsors</a></li>
-            </ul>
+            {% include 'includes/navigation.html' %}
           </nav>
           <div class="span4">
             <h2>Donate!</h2>
