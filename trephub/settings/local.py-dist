@@ -87,7 +87,3 @@ ENGAGE_ROBOTS = True
 
 # Meetup Credentials
 MEETUP_API_KEY = ''
-
-# lessc command for this system
-LESS_BIN = 'lessc'
-LESS_PREPROCESS = True

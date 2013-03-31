@@ -1,16 +1,21 @@
 {% extends 'base.html' %}
 
-{% from 'macros.html' import paginate %}
+{% from 'macros.html' import event_info, paginate %}
 
 {% block content %}
   <div class="row">
     <div class="span12">
-      <ul class="events">
+      <ul class="event-list">
         {% for event in events %}
-          <li>
-            <h2><a href="{{ event.get_absolute_url() }}">{{ event.name }}</a></h2>
-            <p><strong>Location:</strong> {{ event.location.name }}</p>
-            <p>{{ event.summary }}</p>
+          <li class="row event">
+            {{ event_info(event.start, event.location.name) }}
+            <div class="description span">
+              <h3 class="title">
+                <a href="{{ event.get_absolute_url() }}">{{ event.name }}</a>
+              </h3>
+              {{ event.summary }}
+              <p><a href="{{ event.get_absolute_url() }}">Read more</a></p>
+            </div>
           </li>
         {% endfor %}
       </ul>

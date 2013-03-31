@@ -4,3 +4,6 @@
 [submodule "vendor-local/src/easy-thumbnails"]
 	path = vendor-local/src/easy-thumbnails
 	url = git://github.com/SmileyChris/easy-thumbnails.git
+[submodule "vendor-local/src/jingo-minify"]
+	path = vendor-local/src/jingo-minify
+	url = git://github.com/Osmose/jingo-minify.git

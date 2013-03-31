@@ -9,9 +9,9 @@ body {
 
 body {
     color: @darker;
-    background: @light;
-    font-family: 'Droid Sans', Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    background: @white;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
     line-height: 25px;
 }
 
@@ -19,6 +19,39 @@ a {
     color: @dark;
     text-decoration: underline;
 }
+
+
+/* Buttons ******/
+.btn {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.btn-primary {
+    background: @blue;
+
+    &:hover {
+        background: @darkBlue;
+    }
+}
+
+
+/* Pagination ******/
+.pagination ul {
+    box-shadow: none;
+    border-radius: 0;
+
+    li a,
+    li:first-child a,
+    li:last-child a {
+        border: none;
+        border-radius: 0;
+        text-decoration: underline;
+    }
+}
+
 
 
 /* Header ******/
@@ -105,14 +138,14 @@ a {
 .event-list .info-widget {
     .calendar {
         @total-height: 86px;
-        @month-year-height: 22px;
+        @month-year-height: 24px;
 
-        background: @white;
+        background: @light;
         height: @total-height;
 
         .month,
         .year {
-            font-size: 0.95em;
+            font-size: 1em;
             font-variant: small-caps;
             font-weight: bold;
             height: @month-year-height;
@@ -131,13 +164,14 @@ a {
             font-size: 2em;
             font-weight: bold;
             height: @day-height;
-            line-height: @day-height + (@month-year-height / 4);
+            line-height: @day-height + (@month-year-height / 6);
             text-align: center;
         }
     }
 
     .time,
     .location {
+        font-size: 0.9em;
         font-weight: bold;
         margin-top: 4px;
     }
@@ -163,7 +197,7 @@ a {
 
 .footer {
     background-color: @darker;
-    color: @light;
+    color: @white;
     height: @footer-height - (@footer-padding * 2);
     padding: @footer-padding 0;
 

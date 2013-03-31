@@ -1,7 +1,7 @@
 # This is your project's main settings file that can be committed to your
 # repo. If you need to override a setting locally, use settings_local.py
-
 from funfactory.settings_base import *
+
 
 # Defines the views served for root URLs.
 ROOT_URLCONF = 'trephub.urls'
@@ -76,11 +76,15 @@ MINIFY_BUNDLES = {
             'css/home.less',
             'css/about.less',
             'css/meetup.less',
+            'css/events.less',
         ),
     },
     'js': {
         'base': (
             'js/bootstrap.js',
+        ),
+        'less': (
+            'js/less-1.3.3.min.js',
         ),
     },
 }
