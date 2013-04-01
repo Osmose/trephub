@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.template.defaultfilters import slugify
 
+from markupfield.fields import MarkupField
 from product_details import product_details
 
 
@@ -36,7 +37,7 @@ add_introspection_rules([], ['^trephub\.base\.models\.CountryField'])
 class Sponsor(models.Model):
     name = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(default='', unique=True)
-    description = models.TextField()
+    description = MarkupField(markup_type='markdown')
 
     def _logo_path(self, filename):
         root, ext = os.path.splitext(filename)

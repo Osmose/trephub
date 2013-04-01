@@ -53,6 +53,25 @@ a {
 }
 
 
+/* Pager ******/
+.pager li a {
+    background: @darker;
+    border: none;
+    border-radius: 0;
+    color: @white;
+    padding: 8px 14px;
+
+    &:hover {
+        background: @dark;
+        text-decoration: underline;
+    }
+
+    &.disabled {
+        background: @white;
+        color: @light;
+    }
+}
+
 
 /* Header ******/
 .jumbotron {

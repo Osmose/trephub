@@ -1,17 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>{{ entry.title }}</h2>
   <div class="row">
     <div class="span12">
-      <dl class="metadata">
-        <dt>Posted</dt>
-        <dd>{{ entry.published }}</dd>
-        <dt>Author</dt>
-        <dd>{{ entry.author }}</dd>
-      </dl>
-      {{ entry.summary }}
-      {{ entry.content }}
+      <article id="{{ entry.slug }}" class="blog-entry">
+        <h2>{{ entry.title }}</h2>
+        <ul class="blog-info">
+          <li>
+            <i class="icon-calendar"></i>
+            <time datetime="{{ entry.published.isoformat() }}">
+              {{ entry.published|date('F jS, Y') }}
+            </time>
+          </li>
+          <li>
+            {{ gravatar_img(entry.author, size=16) }}
+            {{ entry.author.get_full_name() }}
+          </li>
+        </ul>
+        {{ entry.summary }}
+        {{ entry.content }}
+      </article>
 
       <ul class="pager">
         <li class="previous {% if not newer_entry %}disabled{% endif %}">

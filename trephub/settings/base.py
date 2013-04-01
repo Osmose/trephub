@@ -77,6 +77,8 @@ MINIFY_BUNDLES = {
             'css/about.less',
             'css/meetup.less',
             'css/events.less',
+            'css/blog.less',
+            'css/sponsors.less',
         ),
     },
     'js': {

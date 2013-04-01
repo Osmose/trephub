@@ -7,13 +7,28 @@
     <div class="span12">
       <ul class="blog-entries">
         {% for entry in entries %}
-          <li>
-            <h2>
-              <a href="{{ entry.get_absolute_url() }}">
-                {{ entry.title }}
-              </a>
-            </h2>
-            {{ entry.summary }}
+          <li class="blog-entry">
+            <article id="{{ entry.slug }}">
+              <h2>
+                <a href="{{ entry.get_absolute_url() }}">
+                  {{ entry.title }}
+                </a>
+              </h2>
+              <ul class="blog-info">
+                <li>
+                  <i class="icon-calendar"></i>
+                  <time datetime="{{ entry.published.isoformat() }}">
+                    {{ entry.published|date('F jS, Y') }}
+                  </time>
+                </li>
+                <li>
+                  {{ gravatar_img(entry.author, size=16) }}
+                  {{ entry.author.get_full_name() }}
+                </li>
+              </ul>
+              {{ entry.summary }}
+              <p><a href="{{ entry.get_absolute_url() }}">Read more</a>
+            </article>
           </li>
         {% endfor %}
       </ul>
