@@ -3,6 +3,8 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.http import HttpResponse
+from django.shortcuts import render
+from django.views.defaults import page_not_found
 
 from funfactory.monkeypatches import patch
 
@@ -11,6 +13,10 @@ from trephub.monkeypatches import patch as trephub_patch
 patch()
 trephub_patch()
 admin.autodiscover()
+
+
+def handler500(request):
+    return render(request, '500.html')
 
 
 def robots_txt(request):
@@ -35,6 +41,8 @@ urlpatterns = patterns('',
 ## In DEBUG mode, serve media files through Django.
 if settings.DEBUG:
     urlpatterns += patterns('',
+        (r'^404$', page_not_found),
+        (r'^500$', handler500),
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
